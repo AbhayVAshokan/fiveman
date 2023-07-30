@@ -18,7 +18,7 @@ def assemble_distribution(target_dir=Dir.pwd)
   end
 end
 
-GEM_BLACKLIST = %w( bundler foreman )
+GEM_BLACKLIST = %w( bundler fiveman )
 
 def assemble_gems(target_dir=Dir.pwd)
   lines = %x{ cd #{project_root} && bundle show }.strip.split("\n")
@@ -36,7 +36,7 @@ def assemble_gems(target_dir=Dir.pwd)
 end
 
 def beta?
-  Foreman::VERSION.to_s =~ /pre/
+  Fiveman::VERSION.to_s =~ /pre/
 end
 
 def clean(file)
@@ -44,8 +44,8 @@ def clean(file)
 end
 
 def distribution_files(type=nil)
-  require "foreman/distribution"
-  base_files = Foreman::Distribution.files
+  require "fiveman/distribution"
+  base_files = Fiveman::Distribution.files
   type_files = type ?
     Dir[File.expand_path("../../dist/resources/#{type}/**/*", __FILE__)] : []
   base_files.concat(type_files)
@@ -75,20 +75,20 @@ def s3_connect
 
   require "aws/s3"
 
-  unless ENV["FOREMAN_RELEASE_ACCESS"] && ENV["FOREMAN_RELEASE_SECRET"]
-    puts "please set FOREMAN_RELEASE_ACCESS and FOREMAN_RELEASE_SECRET in your environment"
+  unless ENV["FIVEMAN_RELEASE_ACCESS"] && ENV["FIVEMAN_RELEASE_SECRET"]
+    puts "please set FIVEMAN_RELEASE_ACCESS and FIVEMAN_RELEASE_SECRET in your environment"
     exit 1
   end
 
   AWS::S3::Base.establish_connection!(
-    :access_key_id => ENV["FOREMAN_RELEASE_ACCESS"],
-    :secret_access_key => ENV["FOREMAN_RELEASE_SECRET"]
+    :access_key_id => ENV["FIVEMAN_RELEASE_ACCESS"],
+    :secret_access_key => ENV["FIVEMAN_RELEASE_SECRET"]
   )
 
   @s3_connected = true
 end
 
-def store(package_file, filename, bucket="assets.foreman.io")
+def store(package_file, filename, bucket="assets.fiveman.io")
   s3_connect
   puts "storing: #{filename}"
   AWS::S3::S3Object.store(filename, File.open(package_file), bucket, :access => :public_read)
@@ -103,8 +103,8 @@ def tempdir
 end
 
 def version
-  require "foreman/version"
-  Foreman::VERSION
+  require "fiveman/version"
+  Fiveman::VERSION
 end
 
 Dir[File.expand_path("../../dist/**/*.rake", __FILE__)].each do |rake|

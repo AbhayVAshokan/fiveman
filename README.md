@@ -1,33 +1,33 @@
-# Foreman
+# Fiveman
 
-[![CI](https://github.com/ddollar/foreman/actions/workflows/ci.yml/badge.svg)](https://github.com/ddollar/foreman/actions/workflows/ci.yml)
+[![CI](https://github.com/ddollar/fiveman/actions/workflows/ci.yml/badge.svg)](https://github.com/ddollar/fiveman/actions/workflows/ci.yml)
 
 Manage Procfile-based applications
 
 ## Installation
 
-    $ gem install foreman
+    $ gem install fiveman
 
-Ruby users should take care *not* to install foreman in their project's `Gemfile`. See this [wiki article](https://github.com/ddollar/foreman/wiki/Don't-Bundle-Foreman) for more details.
+Ruby users should take care *not* to install fiveman in their project's `Gemfile`. See this [wiki article](https://github.com/ddollar/fiveman/wiki/Don't-Bundle-Fiveman) for more details.
 
 ## Getting Started
 
-* http://blog.daviddollar.org/2011/05/06/introducing-foreman.html
+* http://blog.daviddollar.org/2011/05/06/introducing-fiveman.html
 
 ## Supported Ruby versions
 
-See [ci.yml](.github/workflows/ci.yml) for a list of Ruby versions against which Foreman is tested.
+See [ci.yml](.github/workflows/ci.yml) for a list of Ruby versions against which Fiveman is tested.
 
 ## Documentation
 
-* [man page](http://ddollar.github.io/foreman/)
-* [wiki](https://github.com/ddollar/foreman/wiki)
-* [changelog](https://github.com/ddollar/foreman/blob/master/Changelog.md)
+* [man page](http://ddollar.github.io/fiveman/)
+* [wiki](https://github.com/ddollar/fiveman/wiki)
+* [changelog](https://github.com/ddollar/fiveman/blob/master/Changelog.md)
 
 ## Ports
 
 * [forego](https://github.com/ddollar/forego) - Go
-* [node-foreman](https://github.com/strongloop/node-foreman) - Node.js
+* [node-fiveman](https://github.com/strongloop/node-fiveman) - Node.js
 * [gaffer](https://github.com/jingweno/gaffer) - Java/JVM
 * [goreman](https://github.com/mattn/goreman) - Go
 * [honcho](https://github.com/nickstenning/honcho) - python
@@ -43,10 +43,10 @@ See [ci.yml](.github/workflows/ci.yml) for a list of Ruby versions against which
 David Dollar
 
 #### Patches contributed by
-[Contributor List](https://github.com/ddollar/foreman/contributors)
+[Contributor List](https://github.com/ddollar/fiveman/contributors)
 
 ## License
 
-Foreman is licensed under the MIT license.
+Fiveman is licensed under the MIT license.
 
 See LICENSE for the full license text.

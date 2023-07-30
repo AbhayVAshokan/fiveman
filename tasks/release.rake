@@ -2,8 +2,8 @@ require "time"
 
 desc "Build the manual"
 task :man do
-  ENV['RONN_MANUAL']  = "Foreman Manual"
-  ENV['RONN_ORGANIZATION'] = "Foreman #{Foreman::VERSION}"
+  ENV['RONN_MANUAL']  = "Fiveman Manual"
+  ENV['RONN_ORGANIZATION'] = "Fiveman #{Fiveman::VERSION}"
   sh "ronn -w -s toc -r5 --markdown man/*.ronn"
 end
 
@@ -17,10 +17,10 @@ end
 desc "Generate the Github docs"
 task :pages => "man:commit" do
   sh %{
-    cp man/foreman.1.html /tmp/foreman.1.html
+    cp man/fiveman.1.html /tmp/fiveman.1.html
     git checkout gh-pages
     rm ./index.html
-    cp /tmp/foreman.1.html ./index.html
+    cp /tmp/fiveman.1.html ./index.html
     git add -u index.html
     git commit -m "saving man page to github docs"
     git push origin -f gh-pages

@@ -12,7 +12,7 @@ require "fakefs/spec_helpers"
 $:.unshift File.expand_path("../../lib", __FILE__)
 
 def mock_export_error(message)
-  expect { yield }.to raise_error(Foreman::Export::Exception, message)
+  expect { yield }.to raise_error(Fiveman::Export::Exception, message)
 end
 
 def mock_error(subject, message)
@@ -26,18 +26,18 @@ def make_pipe
   IO.method(:pipe).arity.zero? ? IO.pipe : IO.pipe("BINARY")
 end
 
-def foreman(args)
+def fiveman(args)
   capture_stdout do
     begin
-      Foreman::CLI.start(args.split(" "))
+      Fiveman::CLI.start(args.split(" "))
     rescue SystemExit
     end
   end
 end
 
-def forked_foreman(args)
+def forked_fiveman(args)
   rd, wr = make_pipe
-  Process.spawn("bundle exec bin/foreman #{args}", :out => wr, :err => wr)
+  Process.spawn("bundle exec bin/fiveman #{args}", :out => wr, :err => wr)
   wr.close
   rd.read
 end
@@ -62,7 +62,7 @@ def fork_and_capture(&blk)
 end
 
 def fork_and_get_exitstatus(args)
-  pid = Process.spawn("bundle exec bin/foreman #{args}", :out => "/dev/null", :err => "/dev/null")
+  pid = Process.spawn("bundle exec bin/fiveman #{args}", :out => "/dev/null", :err => "/dev/null")
   Process.wait(pid)
   $?.exitstatus
 end
@@ -71,8 +71,8 @@ def mock_exit(&block)
   expect { block.call }.to raise_error(SystemExit)
 end
 
-def write_foreman_config(app)
-  File.open("/etc/foreman/#{app}.conf", "w") do |file|
+def write_fiveman_config(app)
+  File.open("/etc/fiveman/#{app}.conf", "w") do |file|
     file.puts %{#{app}_processes="alpha bravo"}
     file.puts %{#{app}_alpha="1"}
     file.puts %{#{app}_bravo="2"}
