@@ -6,9 +6,9 @@ Gem::Specification.new do |gem|
   gem.license  = "MIT"
   gem.version  = Fiveman::VERSION
 
-  gem.author   = "David Dollar"
-  gem.email    = "ddollar@gmail.com"
-  gem.homepage = "https://github.com/ddollar/fiveman"
+  gem.author   = "Abhay V Ashokan"
+  gem.email    = "abhayvashokan@gmail.com"
+  gem.homepage = "https://github.com/AbhayVAshokan/fiveman"
   gem.summary  = "Process manager for applications with multiple components"
 
   gem.description = gem.summary

@@ -8,4 +8,4 @@ Manage Procfile-based applications
 
     $ gem install fiveman
 
-Ruby users should take care *not* to install fiveman in their project's `Gemfile`. See this [wiki article](https://github.com/ddollar/fiveman/wiki/Don't-Bundle-Fiveman) for more details.
+Ruby users should take care *not* to install fiveman in their project's `Gemfile`. See this [wiki article](https://github.com/ddollar/foreman/wiki/Don't-Bundle-Foreman) for more details.
