@@ -1,5 +1,5 @@
 module Fiveman
 
-  VERSION = "0.87.2"
+  VERSION = "0.1.0"
 
 end
